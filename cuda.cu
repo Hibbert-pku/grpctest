@@ -9,8 +9,8 @@ void test_kernel(int* a_, int* b_)
 {
 	int* a;
 	int* b;
-	cudaMallocManaged(a, sizeof(int)*10);
-	cudaMallocManaged(b, sizeof(int)*10);
+	cudaMallocManaged(&a, sizeof(int)*10);
+	cudaMallocManaged(&b, sizeof(int)*10);
 	for(int i = 0; i < 10; i++) {
 		a[i] = a_[i];
 		b[i] = b_[i];

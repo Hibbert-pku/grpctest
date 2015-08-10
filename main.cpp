@@ -1,5 +1,8 @@
 #include<iostream>
 #include<stdlib.h>
+#include<stdio.h>
+
+#include"./cuda.h"
 
 using namespace std;
 
@@ -13,7 +16,7 @@ int main()
 		a[i]=1;
 		b[i]=i;
 	}
-	test(a, b);
+	test_kernel(a, b);
 	for(int i=0;i<10;i++)
 		printf("%d ",a[i]);
 	printf("\n");
