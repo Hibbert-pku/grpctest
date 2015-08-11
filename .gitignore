@@ -3,6 +3,7 @@
 *.swp
 
 *.txt
-go/main
+./go/greeter_client/main
 
+*.pb.h
 *.out
