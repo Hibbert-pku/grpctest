@@ -2,4 +2,7 @@
 *.o
 *.swp
 
+*.txt
+go/main
+
 *.out

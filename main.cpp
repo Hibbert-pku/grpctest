@@ -25,7 +25,7 @@ using helloworld::Greeter;
 class GreeterServiceImpl final : public Greeter::Service {
   Status SayHello(ServerContext* context, const HelloRequest* request,
                   HelloReply* reply) override {
-    std::string prefix("Hello ");
+    std::string prefix("12345 ");
     int* a;
     int* b;
         a = (int *)malloc(sizeof(int) * 10);
