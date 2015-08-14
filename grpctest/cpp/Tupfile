@@ -1,0 +1,8 @@
+include_rules
+
+: foreach ../proto/*.proto |> !protoc -I ../proto |>
+: foreach ../proto/*.proto |> !protoc-grpc |>
+: foreach *.cc | ../../proto/*.h ../proto/*.h ./*.pb.h |> !cxx -I../.. -I/home/hibbert/library/usr/local/include -pthread |>
+: foreach *.cpp | ../../proto/*.h ../proto/*.h ./*.pb.h |> !cxx -I../.. -I/home/hibbert/library/usr/local/include -pthread |>
+: *.o ../../proto/*.o ../../crf/extractors/*.o |> !link-grpc |>
+

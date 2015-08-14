@@ -1,0 +1,13 @@
+
+
+CXXFLAGS += -I../..
+LINKFLAGS += -L/usr/local/cuda/lib64 -L../.. -lcuda -lcudart -lglog -lgflags -lboost_program_options
+LINKFLAGS += -L/home/hibbert/library/usr/local/lib -lgrpc++_unsecure -lgrpc -lgpr -lprotobuf -lpthread -ldl
+PROTOS_PATH = ../proto
+
+GRPC_CPP_PLUGIN = grpc_cpp_plugin
+GRPC_CPP_PLUGIN_PATH = `which $(GRPC_CPP_PLUGIN)`
+
+!protoc-grpc = |> protoc -I $(PROTOS_PATH) --grpc_out=. --plugin=protoc-gen-grpc=$(GRPC_CPP_PLUGIN_PATH) %f |> %B.grpc.pb.cc %B.grpc.pb.h
+!link-grpc = |> $(CXX) $(LDFLAGS) %f -o web_server.out $(LINKFLAGS) |> web_server.out
+

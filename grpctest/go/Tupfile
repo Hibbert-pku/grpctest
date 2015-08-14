@@ -1,0 +1,4 @@
+include_rules
+export GOPATH
+
+: foreach *.go | ../proto/grpc.pb.go |> !go |>
